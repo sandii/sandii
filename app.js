@@ -1,16 +1,21 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
 const commander = require('commander');
+const ask = require('./src/ask');
 const download = require('./src/download');
 
 commander
-  .command('init <name>')
-  .description('init')
-  .action(name => {
+  .command('init')
+  .action(async () => {
+    const { name, type } = await ask();
     if (!name) {
-      console.log(chalk.red('one param required.'));
+      console.log(chalk.red('Project name required.'));
       process.exit(1);
     }
-    download(name);
-});
-commander.parse(process.argv);
+    if (!type) {
+      console.log(chalk.red('Template type required.'));
+      process.exit(1);
+    }
+    download(name, type);
+  })
+  .parse();

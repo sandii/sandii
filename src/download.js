@@ -2,12 +2,10 @@ const chalk = require('chalk');
 const dgr = require('download-git-repo');
 const ora = require('ora');
 
-const url = 'sandii/vue-template';
-
-module.exports = name => {
+module.exports = (name, type = 'vue') => {
   const spinner = ora('downloading..');
   spinner.start();
-  dgr(url, name, {
+  dgr(`sandii/${type}-template`, name, {
     clone: false,
   }, err => {
     spinner.stop();
