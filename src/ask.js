@@ -7,5 +7,5 @@ module.exports = () => inquirer.prompt([{
 }, {
   name: 'type',
   message: 'Choose template type (vue2|vue3|node)',
-  default: 'vue2',
+  default: 'vue3',
 }]);
