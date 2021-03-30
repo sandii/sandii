@@ -2,7 +2,7 @@
 
 ## install
 ```
-npm i -g sandii
+npm i -g sandii-cli
 ```
 
 ## use
